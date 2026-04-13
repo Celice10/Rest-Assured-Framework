@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="API Automation Suite">
+
+    <test name="User Flow Tests">
+
+        <classes>
+            <class name="tests.UserTest"/>
+        </classes>
+
+    </test>
+
+    <listeners>
+        <listener class-name="utils.TestListener"/>
+
+        <listener class-name="utils.ExtentListener"/>
+
+    </listeners>
+
+</suite>
