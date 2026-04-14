@@ -1,4 +1,4 @@
-name: Rest Assured Test
+name: REST Assured API Tests
 
 on:
   push:
