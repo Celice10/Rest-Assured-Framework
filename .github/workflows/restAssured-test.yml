@@ -30,9 +30,20 @@ jobs:
          - name: Run tests
            run: mvn clean test
 
-         - name: Upload test results
+         - name: Generate Allure Report
+           run:
+             mvn io.qameta.allure:allure-maven:report
+            
+         - name: Publish Allure Report
+           uses: actions/upload-pages-artifact@v3
+           with:
+                name: allure-report
+                path: target/site/allure-maven-plugin/
+
+         - name: Upload screenshots
            uses: actions/upload-artifact@v3
            if: always()
            with:
-             name: test-results
-             path: target/surefire-reports/
+             name: screenshots
+             path: target/screenshots/*.png
+
