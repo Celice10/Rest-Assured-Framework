@@ -3,12 +3,20 @@ package tests;
 import api.Endpoints;
 import com.github.javafaker.Faker;
 import common.BaseURI;
+import io.qameta.allure.testng.AllureTestNg;
 import io.restassured.response.Response;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import utils.TokenManager;
 import utils.apiRequestBuilder;
+
+import java.io.File;
+
 import static org.hamcrest.Matchers.equalTo;
 
+@Listeners({AllureTestNg.class})
 public class UserTest extends BaseURI {
 
     static String registeredEmail;
@@ -133,4 +141,12 @@ public class UserTest extends BaseURI {
                 .statusCode(200);
 
     }
+//    @AfterMethod
+//    public void takeScreenshotOnFailure(ITestResult result) {
+//        if (ITestResult.FAILURE == result.getStatus()) {
+//            File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//            File dest = new File("target/screenshots/" + result.getName() + ".png");
+//            FileUtils.copyFile(src, dest);
+//        }
+
 }

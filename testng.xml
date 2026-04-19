@@ -11,9 +11,7 @@
     </test>
 
     <listeners>
-        <listener class-name="utils.TestListener"/>
-
-        <listener class-name="utils.ExtentListener"/>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
 
     </listeners>
 
